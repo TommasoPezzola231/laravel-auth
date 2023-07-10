@@ -13,7 +13,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,24 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:3|max:50',
+            'content' => 'required|min:5',
+            'image' => 'url|max:255'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "title.required" => "Il Titolo è obbligatorio!",
+            "title.min" => "Devi inserire almeno :min Caratteri",
+            "title.max" => "Puoi inserire un massimo di :max caratteri",
+
+            "content.required" => "Il contenuto è obbligatorio!",
+            "content.min" => "Devi inserire almeno :min caratteri",
+
+            "image.max" => "Puoi inserire un massimo di :max caratteri",
+            "image.url" => "Il link deve essere valido",
         ];
     }
 }
