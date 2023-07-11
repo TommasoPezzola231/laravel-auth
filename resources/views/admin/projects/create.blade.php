@@ -17,13 +17,13 @@
         @error('content')
             <div class="bg-danger-subtle rounded">{{$message}}</div>  
         @enderror
-        <input class="form-control @error('description') is-invalid @enderror" type="text" name="content" value="{{ old('title') }}" required>
+        <input class="form-control @error('description') is-invalid @enderror" type="text" name="content" value="{{ old('content') }}" required>
 
         <label for="img">URL immagine</label>
         @error('image')
             <div class="bg-danger-subtle rounded">{{$message}}</div>  
         @enderror
-        <input class="form-control @error('description') is-invalid @enderror" type="text" name="img" value="{{ old('title') }}">
+        <input class="form-control @error('description') is-invalid @enderror" type="text" name="img" value="{{ old('image') }}">
 
         <input class="btn btn-primary my-2" type="submit" value="Crea">
     
